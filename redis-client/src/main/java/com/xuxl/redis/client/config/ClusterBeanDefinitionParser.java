@@ -6,6 +6,7 @@ import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.xml.BeanDefinitionParser;
 import org.springframework.beans.factory.xml.ParserContext;
+import org.springframework.util.Assert;
 import org.w3c.dom.Element;
 import redis.clients.jedis.Protocol;
 
@@ -24,7 +25,9 @@ public class ClusterBeanDefinitionParser implements BeanDefinitionParser {
 
         //2.配置RedisClusterConfiguration
         String clusterName = element.getAttribute("cluster-name");
+        Assert.hasText(clusterName, "clusterName must not be null");
         String businessLineName = element.getAttribute("business-line-name");
+        Assert.hasText(businessLineName, "businessLineName must not be null");
         String maxRedirectsString = element.getAttribute("max-redirects");
         int maxRedirects = StringUtils.isBlank(maxRedirectsString) ? 5 : Integer.valueOf(maxRedirectsString);
         RuntimeBeanReference redisClusterConfiguration = ClusterBeanRegisterUtils.registerRedisClusterConfiguration(clusterName, businessLineName, maxRedirects, registry);

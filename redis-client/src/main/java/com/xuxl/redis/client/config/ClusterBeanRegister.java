@@ -7,9 +7,11 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
+import org.springframework.util.Assert;
 
 /**
  * 注解配置集群
+ *
  * @see EnableClusterConfig
  */
 public class ClusterBeanRegister implements ImportBeanDefinitionRegistrar {
@@ -24,8 +26,10 @@ public class ClusterBeanRegister implements ImportBeanDefinitionRegistrar {
         int maxRedirects = attributes.getNumber("maxRedirects");
 
         String clusterName = attributes.getString("clusterName");
+        Assert.hasText(clusterName, "clusterName must not be null");
 
         String businessLineName = attributes.getString("businessLineName");
+        Assert.hasText(businessLineName, "businessLineName must not be null");
 
         String jedisPoolConfigBeanName = attributes.getString("jedisPoolConfig");
 
