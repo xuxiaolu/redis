@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ymm.redis.admin.mapper.BusinessLineMapper">
-  <resultMap id="BaseResultMap" type="com.ymm.redis.admin.entity.BusinessLine">
+<mapper namespace="com.xuxl.redis.admin.mapper.BusinessLineMapper">
+  <resultMap id="BaseResultMap" type="com.xuxl.redis.admin.entity.BusinessLine">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="cluster_name" jdbcType="VARCHAR" property="clusterName" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, cluster_name, name, description, create_time, modify_time
   </sql>
-  <select id="selectByExample" parameterType="com.ymm.redis.admin.entity.BusinessLineCriteria" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xuxl.redis.admin.entity.BusinessLineCriteria" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,19 +94,19 @@
     delete from business_line
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ymm.redis.admin.entity.BusinessLineCriteria">
+  <delete id="deleteByExample" parameterType="com.xuxl.redis.admin.entity.BusinessLineCriteria">
     delete from business_line
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ymm.redis.admin.entity.BusinessLine" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xuxl.redis.admin.entity.BusinessLine" useGeneratedKeys="true">
     insert into business_line (cluster_name, name, description, 
       create_time, modify_time)
     values (#{clusterName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ymm.redis.admin.entity.BusinessLine" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xuxl.redis.admin.entity.BusinessLine" useGeneratedKeys="true">
     insert into business_line
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="clusterName != null">
@@ -143,7 +143,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ymm.redis.admin.entity.BusinessLineCriteria" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.xuxl.redis.admin.entity.BusinessLineCriteria" resultType="java.lang.Long">
     select count(*) from business_line
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -187,7 +187,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ymm.redis.admin.entity.BusinessLine">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xuxl.redis.admin.entity.BusinessLine">
     update business_line
     <set>
       <if test="clusterName != null">
@@ -208,7 +208,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ymm.redis.admin.entity.BusinessLine">
+  <update id="updateByPrimaryKey" parameterType="com.xuxl.redis.admin.entity.BusinessLine">
     update business_line
     set cluster_name = #{clusterName,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

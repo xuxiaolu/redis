@@ -10,7 +10,7 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-    <context:component-scan base-package="com.ymm.redis.rest"/>
+    <context:component-scan base-package="com.xuxl.redis.test.rest"/>
     <mvc:annotation-driven/>
 
 </beans>

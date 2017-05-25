@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-    <bean id="dataSource" class="com.dianping.zebra.group.jdbc.GroupDataSource" init-method="init">
-        <property name="jdbcRef" value="appmanager"/>
-        <property name="routerType" value="round-robin"/>
-        <property name="idleConnectionTestPeriod" value="60"/>
-        <property name="testConnectionOnCheckin" value="true"/>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value=""/>
+        <property name="name" value=""/>
+        <property name="password" value=""/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

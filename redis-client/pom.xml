@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>redis-parent</artifactId>
         <groupId>com.ymm.redis</groupId>
+        <artifactId>redis</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -38,11 +38,6 @@
             <artifactId>commons-lang</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.dianping.cat</groupId>
-            <artifactId>cat-client</artifactId>
-        </dependency>
-
         <!-- log begin -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -74,12 +69,6 @@
         </dependency>
         <!-- json end -->
 
-        <!-- lion begin -->
-        <dependency>
-            <groupId>com.dianping.lion</groupId>
-            <artifactId>lion-client</artifactId>
-        </dependency>
-        <!-- lion end -->
 
         <!-- spring begin -->
         <dependency>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:cluster="http://www.ymm56.com/schema/cluster"
+       xmlns:cluster="http://www.xuxiaolu.com/schema/cluster"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.ymm56.com/schema/cluster
-	   http://www.ymm56.com/schema/cluster/cluster-1.0.xsd">
+       http://www.xuxiaolu.com/schema/cluster
+	   http://www.xuxiaolu.com/schema/cluster/cluster-1.0.xsd">
 
     <cluster:annotation-config jedis-pool-config="jedisPoolConfig"
                    cluster-name="redis-test"
