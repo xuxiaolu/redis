@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns="http://www.ymm56.com/schema/cluster"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tool="http://www.springframework.org/schema/tool"
+            targetNamespace="http://www.ymm56.com/schema/cluster"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.springframework.org/schema/tool"
+                schemaLocation="http://www.springframework.org/schema/tool/spring-tool.xsd"/>
+
+    <xsd:element name="annotation-config">
+        <xsd:complexType>
+            <xsd:attribute name="jedis-pool-config" type="xsd:string" use="required">
+                <xsd:annotation>
+                    <xsd:documentation
+                            source="java:redis.clients.jedis.JedisPoolConfig">
+                    </xsd:documentation>
+                    <xsd:appinfo>
+                        <tool:annotation kind="ref">
+                            <tool:expected-type
+                                    type="java:redis.clients.jedis.JedisPoolConfig"/>
+                        </tool:annotation>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:attribute>
+
+            <xsd:attribute name="timeout" type="xsd:int"></xsd:attribute>
+
+            <xsd:attribute name="max-redirects" type="xsd:int"></xsd:attribute>
+
+            <xsd:attribute name="cluster-name" type="xsd:string" use="required"></xsd:attribute>
+
+            <xsd:attribute name="business-line-name" type="xsd:string" use="required"></xsd:attribute>
+
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

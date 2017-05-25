@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cluster="http://www.ymm56.com/schema/cluster"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.ymm56.com/schema/cluster
+	   http://www.ymm56.com/schema/cluster/cluster-1.0.xsd">
+
+    <cluster:annotation-config jedis-pool-config="jedisPoolConfig"
+                   cluster-name="redis-test"
+                   business-line-name="redis-test"/>
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="1024"/>
+        <property name="maxWaitMillis" value="2000"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="minIdle" value="1"/>
+    </bean>
+
+</beans>
